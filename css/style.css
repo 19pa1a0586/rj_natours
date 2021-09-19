@@ -1,0 +1,175 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+*{
+    /* This helps us not to have padding and margin to sub divs/sections */
+    box-sizing: border-box;
+    /* These helps us to remove the margin and padding over the html elements like h1,p etc... */
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    /* The default font-size of the web page is 16px */
+    font-size: 16px;
+    /* we linked the google apis font style in the HTML section and instantiated to the body selector in css as "Loto" and 
+    if this doesn't workes then sans-serif will be replaced */
+    font-family: "Loto", sans-serif;
+    /* This creates 30px padding arround our webpage */
+    padding: 30px;
+    /* This sets the text color to light grey */
+    color: #777;
+    /* This adjusts the gap between the lines */
+    line-height: 1.7;
+    /* This sets the thickness of the letters in the body of the webpage */
+    font-weight: 400;
+}
+
+.header-content{
+    /* This sets this div/header to 95 view height irrespective of the device height */
+    height: 95vh;
+    /* This sets the background-image to the header and sets the gradient to desired color 
+    from left top to the right bottom (exactly from the mentioned opposite side) */
+    background-image: linear-gradient(to right bottom, rgba(126,213,111,0.8), rgba(40,180,131,0.8)), url(../img/hero.jpg);
+    /* This sets the image to the top of the screen/div/header irrespective of the device size */
+    background-position: top;
+    /* This sets the image to fit the screen/div/header irrespective of the device size */
+    background-size: cover;
+    /* This helps us to set this div/header as the final border of its child elements which are declared as position: absolute; (in .logo-content)*/
+    position: relative;
+    /* This sets the polygon angles and cut the image into our desired shape */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.logo-content{
+    /* This helps us to keep the logo border limits to its parent element (in .header-content) */
+    position: absolute;
+    /* This gives gap 40px from top of its parent border (.header-content) */
+    top: 40px;
+    /* This gives gap 40px from left of its parent border (.header-content) */
+    left: 40px;
+}
+
+.logo{
+    /* This sets the height of the logo */
+    height: 35px;
+    cursor: pointer;
+}
+
+.text-box{
+    /* THESE FOUR LINES OF CODE HELPS US TO ALIGN ANY ITEM TO THE CENTER OF ITS PARENT */
+
+    /* This sets the content to its respective parent borders (.header-content) */
+    position: absolute;
+    /* This sets the content 40% from top to bottom with respective to its parent borders (.header-content) */
+    top: 40%;
+    /* This sets the content 50% from left to right with respective to its parent borders (.header-content) */
+    left: 50%;
+    /* This sets center to the content borders its self */
+    transform: translate(-50%, -50%);
+
+    
+    /* This helps us to center the text with respective to its parent borders (.header-content) */
+    text-align: center;
+}
+
+
+.heading-primary{
+    /* This sets the color of the text */
+    color: white;
+    /* This sets each and every letter into UpperCase letters */
+    text-transform: uppercase;
+
+    /* This helps us not to jump our text to the slight top after the h1-main and h1-sub animations */
+    backface-visibility: hidden;
+}
+
+.heading-primary-main{
+    /* This makes the inline (span) to block level. so that h1 will be able to stand in seperate lines */
+    display: block;
+    /* This sets the size of the text to 60px */
+    font-size: 60px;
+    /* This sets the space between each letter in the words */
+    letter-spacing: 35px;
+    /* This sets the thickness of the text */
+    font-weight: 400;
+    /* This initializes the @keyframe h1-main to this h1 span */
+    animation-name: h1-main;
+    /* This sets the animation time to 1 second */
+    animation-duration: 1s;
+    /* This starts the animation fast and slowdown at the end */
+    animation-timing-function: ease-out;
+}
+
+.heading-primary-sub{
+    /* This makes the inline (span) to block level. so that h1 will be able to stand in seperate lines */
+    display: block;
+    /* This sets the size of the text to 19px */
+    font-size: 19px;
+    /* This sets the thickness of the text */
+    font-weight: 700;
+    /* This sets the space between each letter in the words */
+    letter-spacing: 17.4px;
+    /* This initializes the @keyframe h1-sub to this h1 span */
+    animation-name: h1-sub;
+    /* This sets the animation time to 1 second */
+    animation-duration: 1s;
+    /* This starts the animation fast and slowdown at the end */
+    animation-timing-function: ease-out;
+}
+
+@keyframes h1-main{
+    /* This done at the starting of the animation */
+    0%{
+        /* This makes the text invisible at starting of the animation */
+        opacity: 0;
+        /* This sets the text to start from left which is negative X direction */
+        transform: translateX(-100px);
+    }
+
+    /* This done when we reach 80% of the animation */
+    80%{
+        /* This sets the text to moves towoard right which is positive X direction */
+        transform: translateX(10px);
+    }
+
+    /* This done at the ending of the animation */
+    100%{
+        /* This makes the text visible at end of the animation */
+        opacity: 1;
+        /* This sets the text to its actual position */
+        transform: translate(0);
+    }
+}
+
+@keyframes h1-sub{
+    /* This done at the starting of the animation */
+    0%{
+        /* This makes the text invisible at starting of the animation */
+        opacity: 0;
+        /* This sets the text to start from right which is positive X direction */
+        transform: translateX(100px);
+    }
+
+    /* This done when we reach 80% of the animation */
+    80%{
+        /* This sets the text to moves towoard left which is negative X direction */
+        transform: translateX(-10px);
+    }
+
+    /* This done at the ending of the animation */
+    100%{
+        /* This makes the text visible at end of the animation */
+        opacity: 1;
+        /* This sets the text to its actual position */
+        transform: translate(0);
+    }
+}
+
+
